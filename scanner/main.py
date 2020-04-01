@@ -1,4 +1,5 @@
 import argparse
+import json
 from pathlib import Path
 
 from intent import scan
@@ -10,7 +11,9 @@ def main(**kwargs):
         for path in pathlist:
             # because path is object not string
             path_in_str = str(path)
-            scan(path_in_str)
+            data = scan(path_in_str)
+            print(json.dumps(data, sort_keys=True,
+                             indent=4, separators=(',', ': ')))
 
 
 if __name__ == '__main__':

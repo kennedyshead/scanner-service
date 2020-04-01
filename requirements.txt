@@ -1,6 +1,7 @@
 phonenumbers
-postal-address
 pyisemail
+nltk
+numpy
+pycountry
 transcribe
 coloredlogs
-probablepeople

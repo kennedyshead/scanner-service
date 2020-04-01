@@ -1,11 +1,11 @@
 from http.client import InvalidURL
 import re
 
+import nltk
 import phonenumbers
+from nltk import Tree
 from phonenumbers import NumberParseException
 from urllib.request import urlopen
-import probablepeople as pp
-from postal_address import Address
 
 SWE = (
     "0981", "0980", "0978", "0977", "0976", "0975", "0973", "0971", "0970",
@@ -107,15 +107,11 @@ def is_webbadress(url):
         return False
 
 
-def is_postal_adress(text):
-    if Address(text).validate():
-        return True
-    return False
-
-
-def is_person(text):
+def parse(text):
     try:
-        if pp.parse(text)[0][1] in ["GivenName", "surname"]:
-            return True
+        tokens = nltk.word_tokenize(text)
+        tags = nltk.pos_tag(tokens)
+        entities = nltk.chunk.ne_chunk(tags)
+        return entities
     except IndexError:
         return False

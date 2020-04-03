@@ -12,8 +12,9 @@ def main(**kwargs):
             # because path is object not string
             path_in_str = str(path)
             data = scan(path_in_str)
-            print(json.dumps(data, sort_keys=True,
-                             indent=4, separators=(',', ': ')))
+            # print(json.dumps(data, sort_keys=True,
+            #                 indent=4, separators=(',', ': ')))
+            print("\n")
 
 
 if __name__ == '__main__':

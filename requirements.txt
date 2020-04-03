@@ -1,6 +1,7 @@
 phonenumbers
 pyisemail
-nltk
+spacy
+falcon
 numpy
 pycountry
 transcribe
